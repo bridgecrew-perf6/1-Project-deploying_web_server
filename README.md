@@ -27,7 +27,10 @@ To support this need and minimize future work, we will use Packer to create a se
 4. Install [Terraform](https://www.terraform.io/downloads.html)
 
 ### Instructions
-**Your words here**
+1. Deploy a Policy
+    * Write a policy definition to deny the creation of resources that do not have tags.
+    * Apply the policy definition to the subscription with the name "tagging-policy".
+    * Use `az policy assignment list` to check the policy assigned.
 
 ### Output
 **Your words here**
