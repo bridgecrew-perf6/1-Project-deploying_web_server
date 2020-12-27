@@ -3,6 +3,9 @@
 ### Introduction
 For this project, you will write a Packer template and a Terraform template to deploy a customizable, scalable web server in Azure.
 
+### Archtecture
+![Project Archtecture](/images/1°projeto-arquitetura.png)
+
 ### Scenario
 Your company's development team has created an application that they need deployed to Azure. The application is self-contained, but they need the infrastructure to deploy it in a customizable way based on specifications provided at build time, with an eye toward scaling the application for use in a CI/CD pipeline.
 
