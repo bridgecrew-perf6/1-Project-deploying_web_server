@@ -1,0 +1,32 @@
+{
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "deny-creation-resources-without-tag",
+    "properties": {
+        "mode": "Indexed",
+        "displayName": "Deny the creation of resources that do not have tags",
+        "description": "This policy denies the creation of resources without tag. In order to create any resource it is mandatory to include coherent tags",
+        "policyRule": {
+            "if": {
+                "allof": [
+                  {
+                    "field": "[concat('tags[', parameters('tagName'), ']')]",
+                    "exists": "false"
+                  }
+                ]
+              },
+              "then": {
+                "effect": "deny"
+              }
+            },
+            "parameters": {
+              "tagName": {
+                "type": "String",
+                "metadata": {
+                  "displayName": "Tag name",
+                  "description": "Name of the tag to enforce"
+                }
+              }
+        }
+
+    }
+}
