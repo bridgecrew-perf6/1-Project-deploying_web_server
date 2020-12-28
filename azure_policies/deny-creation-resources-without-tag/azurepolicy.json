@@ -5,6 +5,10 @@
         "mode": "Indexed",
         "displayName": "Deny the creation of resources that do not have tags",
         "description": "This policy denies the creation of resources without tag. In order to create any resource it is mandatory to include coherent tags",
+        "metadata": {
+            "version": "1.0.0",
+            "category": "Tags"
+        },
         "policyRule": {
             "if": {
                 "allof": [
