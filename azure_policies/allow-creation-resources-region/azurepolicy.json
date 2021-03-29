@@ -1,0 +1,44 @@
+{
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "name": "allow-creation-resources-region",
+  "properties": {
+    "mode": "Indexed",
+    "displayName": "Allow creation of resources in allowed Locations",
+    "description": "This policy allows the creation of resources in allowed region. In order to create any resource it is mandatory select allowed region",
+    "metadata": {
+      "version": "1.0.0",
+      "category": "Compute"
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "location",
+            "notIn": "[parameters('listOfAllowedLocations')]"
+          },
+          {
+            "field": "location",
+            "notEquals": "global"
+          },
+          {
+            "field": "type",
+            "notEquals": "Microsoft.AzureActiveDirectory/b2cDirectories"
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  },
+  "parameters": {
+    "listOfAllowedLocations": {
+      "type": "Array",
+      "metadata": {
+        "description": "The list of locations that can be specified when deploying resources.",
+        "strongType": "location",
+        "displayName": "Allowed locations"
+      }
+    }
+  }
+}
