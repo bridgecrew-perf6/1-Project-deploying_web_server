@@ -34,7 +34,7 @@ $assignment = New-AzPolicyAssignment -Name 'allowed-locations-assignment' -Displ
 
 ```cli
 # Create the Policy Definition (Subscription scope)
-definition=$(az policy definition create --name 'allowed-locations' --display-name 'Allowed locations' --description 'This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements. Excludes resource groups, Microsoft.AzureActiveDirectory/b2cDirectories, and resources that use the 'global' region.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-locations/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-locations/azurepolicy.parameters.json' --mode Indexed)
+definition=$(az policy definition create --name 'allowed-locations' --display-name 'Allowed locations' --description 'This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements. Excludes resource groups, Microsoft.AzureActiveDirectory/b2cDirectories, and resources that use the 'global' region.' --rules 'https://raw.githubusercontent.com/rm-4i/1-Project-deploying_web_server/master/azure_policies/allow-creation-resources-region/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/rm-4i/1-Project-deploying_web_server/master/azure_policies/allow-creation-resources-region/azurepolicy.parameters.json' --mode Indexed)
 
 # Set the scope to a resource group; may also be a subscription or management group
 scope=$(az group show --name 'YourResourceGroup')
